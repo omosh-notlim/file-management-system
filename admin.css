@@ -1,0 +1,657 @@
+html{
+	scroll-behavior: smooth;
+}
+*{
+	margin: 0;
+	padding: 0;
+	/*user-select: none;*/
+	box-sizing: border-box;
+	font-family: "Times New Roman", Times, serif;
+}
+body{
+	background: #fff;
+	overflow: auto;
+}
+
+
+/*-------login-------*/
+.login-container{
+	display: flex;
+	flex-wrap: wrap;
+	height: 100vh;
+	align-items: center;
+	justify-content: space-around;
+	/*background-color: red*/
+}
+
+.login-container form{
+	background-color: #fff;
+	padding: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-around;
+	flex-direction: column;
+	border: solid .6px rgb(200, 200, 200);
+	width: 290px;
+}
+
+.login-container form .img{
+	width: 100px;
+	height: 80px;
+	margin-bottom: 20px;
+}
+.login-container form .img img{
+	width: 100%;
+	height: 100%;
+}
+
+.login-container form .my-input{
+	margin-bottom: 10px;
+	width: 90%;
+}
+
+.login-container form .my-input input{
+	height: 35px;
+	width: 100%;
+	outline: none;
+	border-radius: 5px;
+	border: .7px solid #ccc;
+	/*border-top-width: 0;*/
+	/*background: rgb(200, 200, 200, 0.6);*/
+	border-bottom-width: 2px; 
+	padding: 10px;
+	font-size: 15px;
+	transition: 0.3s ease;
+}
+
+.login-container form .my-input input:focus,
+.login-container form .my-input input:valid{
+	border-color: rgba(40, 3, 116);
+}
+
+.login-container form .login-btn{
+	margin-bottom: 5px;
+	width: 90%;
+}
+
+.login-container form .login-btn input{
+	width: 100%;
+	background-color: rgba(225, 152, 75);
+	color: #fff;
+	outline: none;
+	border: none;
+	border-radius: 10px;
+	font-size: 16px;
+	line-height: 1.4em;
+	letter-spacing: .6px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	cursor: pointer;
+	transition: 0.3s ease;
+}
+.login-container form .login-btn input:hover{
+	background-color: rgba(162, 98, 4, 0.8);
+}
+
+.login-container form a{
+	font-size: 13px;
+	color: rgba(40, 3, 116);
+	text-decoration: none;
+}
+.login-container form a:hover{
+	text-decoration: underline;
+}
+
+
+
+
+/*---------side bar-------*/
+.sidebar{
+	position: fixed;
+	width: 230px;
+	height: 100%;
+	/*left: -270px;*/
+	background: #fff;
+	box-shadow: 0 0 10px 10px #e6e6e6;
+}
+.sidebar.show{
+	left: 0;
+}
+
+.btn{
+	position: fixed;
+	top: 15px;
+	left: 45px;
+	height: 45px;
+	width: 45px;
+	text-align: center;
+	background: /*#1b1b1b*/ #fff;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: left .5s ease;
+}
+.btn.click{
+	left: 275px;
+}
+
+.btn .bi-list{
+	color: #1b1b1b;
+	font-size: 28px;
+	line-height: 45px;
+}
+.btn.click .bi-list{
+	display: none;
+}
+
+.btn .bi-x{
+	display: none;
+}
+.btn.click .bi-x{
+	display: block;
+	color: #1b1b1b;
+	font-size: 28px;
+	line-height: 45px;
+}
+
+.sidebar .text{
+	color: #0066ff;
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 55px;
+	text-align: center;
+	letter-spacing: 1px;
+	margin-top: 10px;
+	/*background: #1e1e1e;*/
+}
+.sidebar .text .image{
+	/*margin-bottom: -50px;*/
+}
+.sidebar .text .image img{
+	width: 150px;
+	height: 150px;
+}
+
+nav{
+	margin: auto;
+}
+nav ul{
+	margin-top: 30px;
+	background: #fff;
+	/*height: 40%;*/
+	width: 80%;
+	margin-left: 30px;
+	list-style: none;
+	box-shadow: 0 0 10px 10px #e6e6e6;
+}
+
+nav ul li{
+	line-height: 50px;
+	border-bottom: 3px solid #e6e6e6;
+}
+.focus{
+	background-color: rgba(40, 3, 116);
+	color: #fff;
+}
+.focus a{
+	color: #fff;
+}
+nav ul li a:hover{
+	background-color: rgba(154, 93, 235);
+}
+nav ul li:last-child{
+	/*border-bottom: 2px solid rgba(10,10,255,0.6);*/
+}
+
+nav ul li a{
+	color: #000;
+	text-decoration: none;
+	font-size: 16px;
+	padding-left: 40px;
+	font-weight: 400px;
+	display: block;
+	width: 100%;
+	/*border-left: 4px solid transparent;*/
+}
+nav ul li a .bi-caret-down-fill{
+	font-size: 10px;
+	padding-left: 20px;
+}
+
+nav ul li.active a{
+	color: #fff;
+	background: rgba(40, 3, 116);
+	border-left-color: #fff;
+}
+
+nav ul ul{
+	position: static;
+	/*transition: .3s ease-in-out;*/
+	display: none;
+}
+
+nav ul ul{
+	box-shadow: 0 0 0 0 #e6e6e6;
+	margin-left: 5px
+}
+
+nav ul .feat-show.show,
+nav ul .serv-show.show1{
+	display: block;
+}
+
+nav ul ul li{
+	line-height: 25px;
+	border-bottom: none;
+	width: 130px;
+	margin-top: -10px;
+	text-align: center;
+}
+nav ul ul a{
+	margin-bottom: 10px;
+}
+
+nav ul ul li a{
+	color: #e6e6e6;
+	font-size: 14px;
+	padding-left: 5px;
+}
+
+nav ul li.active ul li a{
+	color: #e6e6e6;
+	background: #1b1b1b;
+	border-left-color: transparent;
+}
+
+nav ul ul li a:hover{
+	color: #fff!important;
+	background: rgba(225, 152, 75)!important;
+}
+
+/*.side-navbar ul hr{
+	margin-left: -36px;
+}*/
+
+.content-area{
+	margin-left: 240px;
+	padding: 10px;
+}
+.content-area .welcome{
+	background-color: rgba(225, 152, 75);
+	color: #fff;
+	max-width: 250px;
+	padding: 7px;
+	text-align: center;
+}
+.no-log{
+	background-color: rgba(228, 12, 0);
+	margin: 10px auto;
+	color: #fff;
+	max-width: 250px;
+	padding: 7px;
+	text-align: center;
+}
+
+.content-area .search-area .forms{
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 20px;
+	padding: 10px;
+	/*background: red;*/
+}
+
+.table-users{
+	max-height: 80vh;
+	overflow:auto;
+}
+table{
+	width: 100%;
+	margin-top: 10px;
+	border: solid 1px;
+	border-collapse: collapse;
+	border-radius: 8px 8px 0 0;
+	box-shadow: 0 0 7px 0px #b3e0ff;
+	background-color: #fff;
+	align-items: center;
+}
+table tr th{
+	background-color: rgba(49, 24, 1, 0.8);
+	border: solid 1px;
+	color: #fff;
+	font-size: 15px;
+	text-align: center;
+	padding: 10px;
+}
+
+tr td{
+	/*border-bottom: solid 1px #666666; */
+	text-align: center;
+	/*word-break: break-all;*/
+	border: solid 1px;
+	padding: 8px 7px;
+	font-size: 12.5px;
+	font-weight: 600;
+	color: #404040;
+	padding: 10px;
+	/*font-family: 'Roboto', sans-serif;*/
+}
+
+tr td a{
+	text-decoration: none;
+	color: rgba(39, 136, 245);
+}
+tr td a:hover{
+	text-decoration: underline;
+}
+
+tr:hover td{
+	color: #006666;
+	background: #ccffff;
+}
+
+tr:nth-child(odd){
+	background: #f2f2f2;
+}
+tr:nth-child(even){
+	background: #fff;
+}
+
+.errors{
+	max-width: 600px;
+	text-align: center;
+	margin-top: 7px;
+	margin-bottom: 7px;
+	padding: 5px;
+	color: rgb(255,0,0);
+	letter-spacing: .3px;
+	line-height: 1.2em;
+	background-color: rgba(234, 224, 251, 0.8);
+}
+.success{
+	max-width: 600px;
+	text-align: center;
+	margin-top: 7px;
+	margin-bottom: 7px;
+	padding: 5px;
+	color: rgba(6, 198, 17);
+	letter-spacing: .3px;
+	line-height: 1.2em;
+	background-color: rgba(234, 224, 251, 0.8);
+}
+
+/* The Modal (background) */
+.modal {
+	display: none;
+	position: absolute;
+	z-index: 1000; /* Sit on top */
+	top: 10%;
+	left: 30%;
+	width: 400px;
+	/*height: 400px; Full height */
+	/*opacity: 1;*/
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgba(255,255,255, 0.5);
+	padding-top: 50px;
+	border-radius: 10px;
+}
+
+/* Modal Content/Box */
+.modal-content{
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  border-radius: 5px;
+  width: 100%; /* Could be more or less, depending on screen size */
+  padding: 10px;
+}
+
+.modal-content h3{
+	margin-bottom: 3px;
+}
+
+.modal-content hr{
+	width: 45px;
+	margin-bottom: 10px;
+	border: 1px solid #000;
+	border-radius: 5px;
+}
+
+.modal-content .fields{}
+
+.modal-content .fields .input-box{
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.modal-content .fields .input-box input{
+	height: 35px;
+	width: 100%;
+	outline: none;
+	border-radius: 5px;
+	border: .7px solid #ccc;
+	/*background: rgb(200, 200, 200, 0.6);*/
+	border-bottom-width: 2px; 
+	padding: 10px;
+	font-size: 15px;
+	transition: 0.3s ease;
+}
+
+.modal-content .fields .input-box input:focus,
+.modal-content .fields .input-box input:valid{
+	border-color: rgba(40, 3, 116);
+}
+
+.modal-content .fields .input-box select{
+	height: 35px;
+	width: 100%;
+	outline: none;
+	border-radius: 5px;
+	border: .7px solid #ccc;
+	/*background: rgb(200, 200, 200, 0.6);*/
+	border-bottom-width: 2px; 
+	padding: 5px;
+	font-size: 15px;
+	transition: 0.3s ease;
+}
+
+.modal-content .fields .input-box select:focus,
+.modal-content .fields .input-box select:valid{
+	border-color: rgba(40, 3, 116);
+}
+
+/* Style the horizontal ruler */
+/*hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}*/
+
+/* The Modal Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: rgba(176, 180, 183);
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+.clearfix{
+	margin-top: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.clearfix button{
+	font-size: 17px;
+	padding: 5px;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: 0.3s ease;
+}
+
+.clearfix button:hover{
+	transform: scale(1.1);
+}
+
+
+.clearfix .addbtn{
+	background-color: rgba(55, 154, 249);
+	color: #fff;
+}
+.clearfix .del-btn{
+	background-color: rgba(228, 12, 0);
+	color: #fff;
+}
+
+.clearfix .cancelbtn{
+	background-color: rgba(225, 152, 75);
+	color: #fff;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+/*------profile------*/
+.profile-form{
+	margin-top: 40px;
+	max-width: 500px;
+}
+
+.profile-form h3{
+	margin-bottom: 3px;
+	font-size: 40px;
+	color: rgba(72, 42, 1, 0.8);
+}
+
+.profile-form hr{
+	width: 110px;
+	margin-bottom: 30px;
+	border: 2px solid #000;
+	border-radius: 5px;
+	color: rgba(72, 42, 1, 0.8);
+}
+
+.profile-form .fields .input-box{
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.profile-form .fields .input-box label{
+	padding: 10px;
+	font-size: 18px;
+	line-height: 1.5em;
+	font-weight: 600;
+	color: rgba(26, 24, 20, 0.8);
+}
+
+.profile-form .fields .input-box input{
+	height: 35px;
+	width: 100%;
+	outline: none;
+	border-radius: 5px;
+	border: .7px solid #ccc;
+	/*background: rgb(200, 200, 200, 0.6);*/
+	border-bottom-width: 2px; 
+	padding: 10px;
+	font-size: 15px;
+	transition: 0.3s ease;
+}
+
+.profile-form .fields .input-box input:focus,
+.profile-form .fields .input-box input:valid{
+	border-color: rgba(40, 3, 116);
+}
+
+.profile-form .fields .input-box select{
+	height: 35px;
+	width: 100%;
+	outline: none;
+	border-radius: 5px;
+	border: .7px solid #ccc;
+	/*background: rgb(200, 200, 200, 0.6);*/
+	border-bottom-width: 2px; 
+	padding: 5px;
+	font-size: 15px;
+	transition: 0.3s ease;
+}
+
+.profile-form .fields .input-box select:focus,
+.profile-form .fields .input-box select:valid{
+	border-color: rgba(40, 3, 116);
+}
+
+.profile-btns{
+	margin-top: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.profile-btns input{
+	font-size: 17px;
+	padding: 5px;
+	width: 100px;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: 0.3s ease;
+}
+
+.profile-btns input:hover{
+	transform: scale(1.1);
+}
+
+
+.profile-btns .update-btn{
+	background-color: rgba(55, 154, 249);
+	color: #fff;
+}
+.profile-btns .del-btn{
+	background-color: rgba(228, 12, 0);
+	color: #fff;
+}
+
+.profile-btns .clear-tn{
+	background-color: rgba(225, 152, 75);
+	color: #fff;
+}
+
+
+
+@media only screen and (max-width: 700px){
+	.sidebar{
+		left: -230px;
+		z-index: 2;
+	}
+
+	.content-area{
+		margin-left: auto;
+		margin-right:  auto;
+		/*width: 80%;*/
+	}
+	.modal{
+		left: 10%;
+		/*width: 400px;*/
+	}
+}
+
+
+
+
+
+
+
+	
